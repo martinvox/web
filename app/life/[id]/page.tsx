@@ -10,6 +10,16 @@ interface BlogPostPageProps {
   }
 }
 
+// Add this function to specify which paths to pre-render
+export async function generateStaticParams() {
+  // Return an array of objects with the id parameter for each path
+  return [
+    { id: 'future-of-ai' },
+    { id: 'web3-revolution' },
+    { id: 'cybersecurity-tips' }
+  ]
+}
+
 export default function BlogPostPage({ params }: BlogPostPageProps) {
   const { id } = params
 
