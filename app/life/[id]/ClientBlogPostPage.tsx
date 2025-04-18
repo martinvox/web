@@ -1,18 +1,22 @@
-"use client"
+"use client";
 
-import { notFound } from "next/navigation"
-import Link from "next/link"
-import { ArrowLeft, CalendarIcon, Clock } from "lucide-react"
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { ArrowLeft, CalendarIcon, Clock } from "lucide-react";
 
 interface BlogPostPageProps {
   params: {
-    id: string
-  }
+    id: string;
+  };
+}
+
+export default function ClientBlogPostPage() {
+  return <div>Blog Post Page</div>;
 }
 
 // This is a server component now (removed "use client")
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const { id } = params
+export function BlogPostPage({ params }: BlogPostPageProps) {
+  const { id } = params;
 
   // This would typically come from an API or database
   const posts = {
@@ -201,12 +205,12 @@ function MyComponent() {
         <p>By applying these techniques, you can significantly improve the performance of your React applications, providing a better user experience and reducing resource usage.</p>
       `,
     },
-  }
+  };
 
-  const post = posts[id as keyof typeof posts]
+  const post = posts[id as keyof typeof posts];
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -239,5 +243,5 @@ function MyComponent() {
         />
       </article>
     </div>
-  )
+  );
 }
